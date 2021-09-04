@@ -9,6 +9,9 @@
 	padding: 0px;
 	/*user-select: none;*/
 }
+::selection{
+	background-color: #fa0;
+}
 body{
 	/*background: url(https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php);*/
 	/*background: url(https://api.yuzhitu.cn//sjbz/api.php?method=pc&lx=suiji);*/
@@ -67,6 +70,7 @@ body{
 .main{
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
 
@@ -145,11 +149,8 @@ body{
 .searchbar-frame{
 	width: 440px;
 	height: 35px;
-	margin: 10px 0px;
+	margin: 10px auto;
 	/*background-color: #fff7;*/
-	position: relative;
-	left: 50%;
-	transform: translate(-50%);
 }
 .searchbar-frame a{
 	text-decoration: none;
@@ -221,7 +222,7 @@ body{
 	display: inline-block;
 	width:30vw;
 	height: var(--box-h);
-	margin: 20px 1rem;
+	margin: 16px 1rem;
 	/*border: solid #19c7 2px;*/
 	border-radius: 15px;
 	background-color: #19c7;
@@ -248,7 +249,12 @@ body{
 	border-bottom: solid #fff7 1px;
 	user-select: none;
 }
-.navlist{
+.navlist a{
+	text-decoration: none;
+}
+.navlist a:link,
+.navlist a:visited{
+	color: #fff;
 }
 .nav_d{
 	display: inline-block;
@@ -257,37 +263,45 @@ body{
 	line-height: 1.8rem;
 	margin: 3px 5px;
 }
-.nav_d:hover{
+.nav_d:hover,.nav_a:hover,
+.nav_a1:hover,.nav_a2:hover,
+.nav_s1:hover,.nav_s2:hover
+{
 	border-radius: 3rem;
 	background-color: #19c;
 }
-.navlist a{
-	text-decoration: none;
-	width: 30px;
-}
-.navlist a:link,
-.navlist a:visited{
+.nav_a1,.nav_a2,.nav_a,
+.nav_s1,.nav_s2{
+	display: inline-block;
+	width: 6rem;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	margin: 3px 5px;
+	border-radius: 3rem;
+	background-color: #369;
 	color: #fff;
+	cursor: pointer;
 }
 
 
 
 
 .toolbox-more{/*Show More*/
-	/*display: none;*/
+	display: none;
 }
 .morebtn-show{
-	display: none;
+	/*display: none;*/
 }
 .morebtn-hide{
 	/*display: none;*/
 }
 [class*='morebtn-']{
 	width: 10vw;
+	min-width: 100px;
 	height: 36px;
 	line-height: 36px;
 	font-weight: bold;
-	margin: 10px auto;
+	margin: 0px auto;
 	font-size: 20px;
 	border-radius: 6px;
 	color: #fff;
@@ -331,6 +345,7 @@ body{
 	margin-top: -4px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+	cursor: pointer;
 }
 .theme-button:hover{
 	background-color: #369;
@@ -340,10 +355,52 @@ body{
 	display: inline-block;
 	width: 6vw;
 	min-width: 42px;
-	cursor: pointer;
 }
 
 
+.footer{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.footer-head{
+	margin: 0 auto;
+	background-color: #545e68;
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	color: #fff;
+	font-size: 1.2rem;
+	line-height: 45px;
+	cursor: pointer;
+}
+.footer-body{
+	display: none;
+	background-color: #343d46;
+}
+[class*='fb-']{
+	color: #fff;
+	text-align: center;
+	margin: 5px auto;
+	user-select: none;
+}
+[class*='fb-'] a,
+[class*='fb-'] a:link,
+[class*='fb-'] a:visited
+{
+	text-decoration: none;
+	color: #fff;
+}
+[class*='fb-'] a:hover{
+	color: #19c;
+}
+[class*='fblink-']{
+	margin: 5px auto;
+}
+.fbline{
+	margin: 0px 10px;
+	color: #bbb;
+}
 
 @media only screen and (max-width: 1920px){
 	[class*='nav-']{
