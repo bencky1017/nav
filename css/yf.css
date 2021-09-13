@@ -26,8 +26,8 @@ body{
 	width: 100%;
 	height: 100%;
 	filter: blur(5px);
-	/*background: url(https://cdn.seovx.com/?mom=302);*/
-	background-color: #e1be9e;
+	background: url(https://cdn.seovx.com/?mom=302);
+	/*background-color: #e1be9e;*/
 	background-size:cover;
 	background-repeat: no-repeat;
 	background-position: center center;
