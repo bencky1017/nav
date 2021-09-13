@@ -39,31 +39,56 @@ $(function(){
 	});
 });
 $(function(){
-	/*底部footer点击伸缩效果*/
-	$('.footer-head,.footer-body').on('click',function(){
-		$('.footer-body').slideToggle(200);
-	})
-});
-$(function(){
+	/*资源库调用*/
 	/*通过资源库添加原始6个链接*/
 	for (var i = 0; i <= 5; i++) {
 		$('[class*="nav-"]').eq(i).removeClass().addClass(link.category[i].class);
 		var tb_body_title='<div class="navtitle">'+link.category[i].name+'</div>';
 		$('.navlist').eq(i).html(tb_body_title);
 
+		/*用户自定义模块*/
+		if (i==0) {
+			var navedit_list='<a href="https://bencky1017.github.io/nav/README/help" class="navhelp">帮助</a><span class="navedit">编辑</span><div class="navlist-a">';
+			$('.navtitle').after(navedit_list);
+			var ndd_table='<a style="display:none;"><div class="nav_add">添加</div></a><div class="ndd-table" style="display: none;"><div class="ndd-t-name">名称：<input type="search" value=""  placeholder="名称(5字以内)" onkeyup="value=value.replace(/[\\s*]/g,\'\')" maxlength="5" class="ndd-t-input nti-name"></div><div class="ndd-t-url">网址：<input type="search" value="" placeholder="网址链接" onkeyup="value=value.replace(/[\\s*]/g,\'\')" class="ndd-t-input nti-url"></div><div class="ndd-t-btn"><input type="button" value="取消" class="btn-button btn-cancel"><input type="button" value="确认" class="btn-button btn-sure"></div></div>';
+			$('.navlist').append(ndd_table);
+		}
+
 		/*原始6个盒子对应列表，设置限制*/
 		var numlimit=11;
-		if (numlimit>link.category[i].list.length - 1) {numlimit=link.category[i].list.length - 1}
-		for (var j = 0; j <= numlimit; j++) {
-			var tb_body_list='<a href="'+link.category[i].list[j].url+'"><div class="nav_d">'+link.category[i].list[j].name+'</div></a>';
-			$('.navlist').eq(i).append(tb_body_list);
+		var numcurrent=link.category[i].list.length - 1;
+
+
+		/*用户自定义模块显示*/
+		if (i==0&numcurrent>11) {
+			for (var m = 0; m <= numcurrent; m++) {
+				 let tb_body_list='<a href="'+link.category[0].list[m].url+'"><div class="nav_d">'+link.category[0].list[m].name+'</div></a>';
+				 $('.navlist-a').append(tb_body_list);
+			}
+			for (var k = 12; k <= numcurrent; k++) {
+				$('.navlist-a a').eq(k).css('display','none');
+			}
+		}else{
+			numlimit=(numlimit>numcurrent)?numcurrent:numlimit;
+			for (var j = 0; j <= numlimit; j++) {
+				var tb_body_list='<a href="'+link.category[i].list[j].url+'"><div class="nav_d">'+link.category[i].list[j].name+'</div></a>';
+				if (i==0) {
+					/*用户自定义模块*/
+					// numlimit=numcurrent;/*解除限制令*/
+					$('.navlist-a').append(tb_body_list);
+				}else{
+					$('.navlist').eq(i).append(tb_body_list);
+				}
+			}
 		}
 
 		/*条件下显示更多按钮*/
 		var nav_a1='<a><div class="nav_a1">更多</div></a>';
 		var nav_a='<a><div class="nav_a">更多</div></a>';/*限制令*/
+		var nav_an='<a><div class="nav_an">更多</div></a>';/*限制令*/
 		if (numlimit<link.category[i].list.length - 1) {
-			if (i==2) {$('.navlist').eq(i).append(nav_a);continue;}
+			if (i==0) {$('.navlist-a').after(nav_an);continue}/*限制令*/
+			if (i==2) {$('.navlist').eq(i).append(nav_a);continue;}/*限制令*/
 			$('.navlist').eq(i).append(nav_a1);
 		}
 	}
@@ -102,8 +127,6 @@ $(function(){
 			$('.toolbox-nav').append(btn_hide);
 		}
 	}
-		if ($(this).parents('nav-v-ana')) {$(this).off('click');}
-	
 
 	/*更多按钮点击展开效果*/
 	$('.nav_a1,.nav_a2').on('click',function(){
@@ -125,31 +148,116 @@ $(function(){
 		}
 	});
 
-	/*限制令*/
-	// $('.nav_a').on('click',function(){
-		// alert('会员功能，不给你看');
-		var message = new MyMessage.message({
-			/*默认参数，下面为默认项*/
-			iconFontSize: "20px", //图标大小,默认为20px
-			messageFontSize: "12px", //信息字体大小,默认为12px
-			showTime: 3000, //消失时间,默认为3000
-			align: "center", //显示的位置类型center,right,left
-			positions: { //放置信息距离周边的距离,默认为10px
-				top: "300px",
-				bottom: "10px",
-				right: "10px",
-				left: "10px"
-			},
-			message: "这是一条消息", //消息内容,默认为"这是一条消息"
-			type: "normal", //消息的类型，还有success,error,warning等，默认为normal
-		});
-		message.setting("showTime", "1000");
-		$('.nav_a').click(function() {
-			let msgtitle=$(this).parents('.navlist').find('.navtitle').text();
-			message.add(msgtitle+" 为会员功能，不给你看","warning");
-		});
-	// });
+	/*用户自定义模块更多按钮*/
+	$('.nav_an').on('click',function (){
+		var nav_anlength=$('.navlist-a a').length - 1;
+		if ($(this).text()=='更多') {
+			for (var j = 12; j <= nav_anlength; j++) {
+				$('.navlist-a a').eq(j).css('display','');
+			}
+			$(this).html('收起').css('background-color','#fa0');
+		}else if ($(this).text()=='收起') {
+			for (var j = 12; j <= nav_anlength; j++) {
+				$('.navlist-a a').eq(j).css('display','none');
+			}
+			$(this).html('更多').css('background-color','#369');
+		}
+	});
 
+	/*限制令*/
+	var message = new MyMessage.message({
+		/*默认参数，下面为默认项*/
+		iconFontSize: "20px", //图标大小,默认为20px
+		messageFontSize: "12px", //信息字体大小,默认为12px
+		showTime: 3000, //消失时间,默认为3000
+		align: "center", //显示的位置类型center,right,left
+		positions: { //放置信息距离周边的距离,默认为10px
+			top: "300px",
+			bottom: "10px",
+			right: "10px",
+			left: "10px"
+		},
+		message: "这是一条消息", //消息内容,默认为"这是一条消息"
+		type: "normal", //消息的类型，还有success,error,warning等，默认为normal
+	});
+	message.setting("showTime", "1000");
+	$('.nav_a').click(function() {
+		var msgtitle=$(this).parents('.navlist').find('.navtitle').text();
+		message.add(msgtitle+" 为会员功能，不给你看","warning");
+	});
+});
+$(function(){
+	/*用户自定义模块*/
+	$(".navedit").on('click',function(){
+		if ($(this).text()=='编辑') {
+			$(".navedit").text('保存');
+			$('.nav_add').parent().css('display','');//*显示添加按钮*
+			$(".navlist-a").sortable("enable");
+			$(".navlist-a").css({'background':'#0007'});
+			$('.navlist-a a').attr('onclick','return false;'); //*禁止点击*
+			$('.nav_an').css('display','none');//*隐藏更多按钮*
+
+		}else if ($(this).text()=='保存') {
+			$(".navedit").text('编辑');
+			$('.nav_add').parent().css('display','none');//*隐藏添加按钮*
+			$(".navlist-a").sortable("disable");
+			$(".navlist-a").css('background','');
+			$('.navlist-a a').removeAttr('onclick'); //*允许点击*
+			$('.nav_an').css('display','');//*显示更多按钮*
+
+			/*检测用户自定义模块是否需要收起*/
+			var nav_da=$('.navlist-a a');
+			if(nav_da.length>12){
+				for (var i = 12; i <= nav_da.length - 1; i++) {
+					nav_da.eq(i).css('display','none');
+				}
+			}
+		}
+	});
+
+	/*可排序插件*/
+	$(".navlist-a").sortable({
+		containment: "parent",
+		opacity: 0.7,
+		tolerance: "pointer",/*鼠标指针重叠在其他项目上*/
+		// tolerance: "intersect",/*项目至少50%重叠在其他项目上*/
+		placeholder: ".ui-state-hover",
+		cursorAt:{ left:60,top:20},
+		start: function( event, ui ) {},
+		stop: function( event, ui ) {}
+	}).sortable("disable");
+});
+$(function(){
+	/*用户自定义模块内容功能*/
+	/*添加链接*/
+	$('.nav_add').on('click',function(){
+		$('.nti-name,.nti-url').val('');
+		$('.ndd-table').css('display','');
+	});
+
+	/*取消添加*/
+	$('.btn-cancel').on('click',function(){
+		$('.ndd-table').css('display','none');
+	});
+
+	/*确认添加*/
+	$('.btn-sure').on('click',function(){
+		var name=$('.nti-name');
+		var url=$('.nti-url');
+		if (name.val()!=''&url.val()!=''){
+			var link='<a href="'
+			+url.val()+'"><div class="nav_d">'
+			+name.val()+'</div></a>';
+			$('.ndd-table').css('display','none');
+			$('.navlist-a').append(link);
+		}
+	});
+
+	/*删除网址*/
+	$('.navlist-a a').on('dblclick',function(){
+		var delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');
+		if (delconfirm) {$(this).remove();}
+	})
 });
 $(function(){
 	/*展开收起按钮点击效果*/
@@ -163,6 +271,11 @@ $(function(){
 		$('.morebtn-hide').css('display','none');
 		$('.morebtn-show').css('display','');
 	});
+	
+	/*底部footer点击伸缩效果*/
+	$('.footer-head,.footer-body').on('click',function(){
+		$('.footer-body').slideToggle(200);
+	})
 });
 var MyMessage = (function() {
 	function message(setting) {

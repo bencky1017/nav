@@ -14,6 +14,7 @@ link=/*限制12*/
 				{"url":"https://github.com/","name":"Github"},
 				{"url":"https://www.umeng.com/","name":"友盟"},
 				{"url":"http://81rc.81.cn/","name":"军队人才网"},
+				{"url":"https://docs.qq.com/desktop/","name":"腾讯文档"},
 			]
 		},
 		{
@@ -190,9 +191,7 @@ link=/*限制12*/
 				{"url":"https://www.kdocs.cn/","name":"金山文档"},
 				{"url":"https://gitmind.cn/","name":"思维导图"},
 				{"url":"https://xiezuocat.com/#/","name":"秘塔猫"},
-				{"url":"xxxxxxxxxx","name":"xxxxxxxxxx"},
-				{"url":"xxxxxxxxxx","name":"xxxxxxxxxx"},
-				{"url":"xxxxxxxxxx","name":"xxxxxxxxxx"},
+				{"url":"https://docs.qq.com/desktop/","name":"腾讯文档"},
 			]
 		},
 		{
@@ -255,6 +254,7 @@ link=/*限制12*/
 				{"url":"https://app.xunjiepdf.com/img2icon","name":"IMG转ICO"},
 				{"url":"http://cn.favicon-icon-generator.com/","name":"FavICON"},
 				{"url":"https://www.hwkxk.cn/","name":"抖音去水印"},
+				// {"url":"http://douyin.0746120.com/","name":"抖音提取"},
 				{"url":"https://www.notion.so/product","name":"Notion"},
 			]
 		},
@@ -278,6 +278,9 @@ link=/*限制12*/
 				{"url":"https://www.heikeblog.com/","name":"黑客入门"},
 				{"url":"http://pdfzj.cn/","name":"PDF之家"},
 				{"url":"https://www.ghxi.com/","name":"果核剥壳"},
+				{"url":"https://www.dujin.org/","name":"缙哥哥"},
+				{"url":"https://blog.btstu.cn/","name":"缥缈"},
+				// {"url":"https://www.0746120.com/","name":"遗忘收藏夹"},
 			]
 		},
 		{
@@ -318,6 +321,7 @@ link=/*限制12*/
 			"class":"nav-game",
 			"list":[
 				{"url":"https://bencky1017.github.io/KentGame/index.html","name":"KentGame"},
+				{"url":"http://remake.solaking.com/","name":"人生重开"},
 				{"url":"http://html5.huceo.com/","name":"网页娱乐"},
 				{"url":"https://neal.fun/deep-sea","name":"深海"},
 				{"url":"https://www.yikm.net/","name":"小霸王"},
@@ -424,18 +428,6 @@ link=/*限制12*/
 				{"url":"https://cdn.seovx.com/","name":"夏沫"},
 				{"url":"https://www.aeqx.cn/","name":"夏沫原"},
 				{"url":"https://www.woyaocha.net/","name":"我要查"},
-			]
-		},
-		{
-			"name":"测试链接",
-			"class":"nav-test",
-			"list":[
-				{"url":"1111111111","name":"我的"},
-				// {"url":"2222222222","name":"地方官"},
-				{"url":"3333333333","name":"好官方"},
-				{"url":"4444444444","name":"儿童"},
-				{"url":"5555555555","name":"而已"},
-				{"url":"6666666666","name":"黄金矿工"},
 			]
 		}
 	]

@@ -1,0 +1,26 @@
+
+.navhelp,.navedit{
+	display: inline;
+	color: #ccc;
+}
+.navhelp:hover,.navedit:hover{
+	color: #fff;
+	cursor: pointer;
+}
+.navhelp{
+	position: absolute;
+	right: 70px;
+	top: 10px;
+	text-decoration: none;
+}
+.navedit{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+}
+.navhelp:link{
+	color: #ccc;
+}
+.navhelp:visited{
+	color: #fa0;
+}
