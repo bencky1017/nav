@@ -58,7 +58,6 @@ $(function(){
 		var numlimit=11;
 		var numcurrent=link.category[i].list.length - 1;
 
-
 		/*用户自定义模块显示*/
 		if (i==0&numcurrent>11) {
 			for (var m = 0; m <= numcurrent; m++) {
@@ -77,17 +76,29 @@ $(function(){
 					// numlimit=numcurrent;/*解除限制令*/
 					$('.navlist-a').append(tb_body_list);
 				}else{
+					/*其他默认显示*/
 					$('.navlist').eq(i).append(tb_body_list);
 				}
 			}
 		}
 
+		/*缓存默认列表*/
+		if (i==0) {
+			window.localStorage.setItem('bk_default',$('.navlist-a').html());
+		}
+
 		/*条件下显示更多按钮*/
 		var nav_a1='<a><div class="nav_a1">更多</div></a>';
 		var nav_a='<a><div class="nav_a">更多</div></a>';/*限制令*/
-		var nav_an='<a><div class="nav_an">更多</div></a>';/*限制令*/
+		var nav_an='<a><div class="nav_an" style="display:none;">更多</div></a>';/*限制令*/
+		if (i==0) {
+			$('.navlist-a').after(nav_an);/*限制令*/
+			if (window.localStorage.getItem("bk_user") != null&window.localStorage.getItem("bk_user") != "") {
+				$('.navlist-a').html(window.localStorage.getItem("bk_user"));continue;
+			}
+		}
 		if (numlimit<link.category[i].list.length - 1) {
-			if (i==0) {$('.navlist-a').after(nav_an);continue}/*限制令*/
+			if (i==0) {$('.nav_an').css('display','');continue;}
 			if (i==2) {$('.navlist').eq(i).append(nav_a);continue;}/*限制令*/
 			$('.navlist').eq(i).append(nav_a1);
 		}
@@ -196,6 +207,17 @@ $(function(){
 			$(".navlist-a").css({'background':'#0007'});
 			$('.navlist-a a').attr('onclick','return false;'); //*禁止点击*
 			$('.nav_an').css('display','none');//*隐藏更多按钮*
+			$('.navlist-a a').css('display','');//*显示列表全部*
+
+			$('.nav_add').parent().after('<div class="nav_reset" style="color:#ddd;display:block;width:80px;margin:0px auto;">恢复默认</div>');
+			$('.nav_reset').hover(function(){
+				$('.nav_reset').css({'color':'#fff','cursor':'pointer'});
+			},function(){
+				$('.nav_reset').css({'color':'#ddd'});
+			});
+			$('.nav_reset').off('click').on('click',function(){
+				$('.navlist-a').html(window.localStorage.getItem('bk_default'));
+			});
 
 		}else if ($(this).text()=='保存') {
 			$(".navedit").text('编辑');
@@ -203,15 +225,21 @@ $(function(){
 			$(".navlist-a").sortable("disable");
 			$(".navlist-a").css('background','');
 			$('.navlist-a a').removeAttr('onclick'); //*允许点击*
-			$('.nav_an').css('display','');//*显示更多按钮*
+			$('.nav_reset').remove();
+
 
 			/*检测用户自定义模块是否需要收起*/
 			var nav_da=$('.navlist-a a');
 			if(nav_da.length>12){
-				for (var i = 12; i <= nav_da.length - 1; i++) {
-					nav_da.eq(i).css('display','none');
+				for (var q = 12; q <= nav_da.length - 1; q++) {
+					nav_da.eq(q).css('display','none');
 				}
+				$('.nav_an').css('display','');//*显示更多按钮*
 			}
+
+			/*localStorage存储方法*/
+			var bk_user_value=($('.navlist-a').html());
+			window.localStorage.setItem("bk_user",bk_user_value);
 		}
 	});
 
@@ -246,17 +274,21 @@ $(function(){
 		var url=$('.nti-url');
 		if (name.val()!=''&url.val()!=''){
 			var link='<a href="'
-			+url.val()+'"><div class="nav_d">'
+			+url.val()+'" onclick="return false;"><div class="nav_d">'
 			+name.val()+'</div></a>';
 			$('.ndd-table').css('display','none');
 			$('.navlist-a').append(link);
+			$('.nav_d').off('dblclick').on('dblclick',function(){
+				let delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');
+				if (delconfirm) {$(this).parent().remove();}
+			})
 		}
 	});
 
 	/*删除网址*/
-	$('.navlist-a a').on('dblclick',function(){
-		var delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');
-		if (delconfirm) {$(this).remove();}
+	$('.nav_d').on('dblclick',function(){
+		let delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');
+		if (delconfirm) {$(this).parent().remove();}
 	})
 });
 $(function(){
