@@ -16,10 +16,10 @@
 	<script type="text/javascript" src="font/iconfont.js"></script>
 	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
 	<script type="text/javascript" src="js/zoomify.js"></script>
-	<script type="text/javascript" src="js/mymessage.1.1.js"></script>
+	<!-- <script type="text/javascript" src="js/mymessage.1.1.js"></script> -->
 	<script type="text/javascript" src="js/data.json"></script>
-	<script type="text/javascript" src="js/yf.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/yf.js"></script>
 	<base target="_blank"/>
 </head>
 <body>
@@ -99,54 +99,6 @@
 				<div class="toolbox-nav"  oncontextmenu=self.event.returnValue=false><!-- 必须保持原始6个，名称不超过5个字 -->
 					<div class="nav-usual">
 						<div class="navlist">
-							<div class="navtitle">常用网址</div>
-							<a href="https://bencky1017.github.io/nav/README/help" class="navhelp">帮助</a>
-							<span class="navedit">编辑</span>
-							<div class="navlist-a">
-								<a href="https://www.baidu.com/">
-									<div class="nav_d">百度</div>
-								</a>
-								<a href="https://www.uc123.com/">
-									<div class="nav_d">UC浏览器</div>
-								</a>
-								<a href="https://jikipedia.com/">
-									<div class="nav_d">小鸡词典</div>
-								</a>
-								<a href="https://weibo.com/">
-									<div class="nav_d">微博</div>
-								</a>
-								<a href="https://www.zhihu.com/">
-									<div class="nav_d">知乎</div>
-								</a>
-								<a href="https://i.mi.com/">
-									<div class="nav_d">小米云服务</div>
-								</a>
-								<a href="https://github.com/">
-									<div class="nav_d">Github</div>
-								</a>
-								<a href="https://www.umeng.com/">
-									<div class="nav_d">友盟</div>
-								</a>
-								<a href="http://81rc.81.cn/">
-									<div class="nav_d">军队人才网</div>
-								</a>
-								<a href="https://docs.qq.com/desktop/">
-									<div class="nav_d">腾讯文档</div>
-								</a>
-							</div>
-							<!-- <a><div class="nav_add">添加</div></a> -->
-							<div class="ndd-table" style="display: none;">
-								<div class="ndd-t-name">
-									名称：<input type="search" value=""  placeholder="名称(5字以内)" onkeyup="value=value.replace(/[\s*]/g,'')" maxlength="5" class="ndd-t-input nti-name">
-								</div>
-								<div class="ndd-t-url">
-									网址：<input type="search" value="" placeholder="网址链接" onkeyup="value=value.replace(/[\s*]/g,'')" class="ndd-t-input nti-url">
-								</div>
-								<div class="ndd-t-btn">
-									<input type="button" value="取消" class="btn-button btn-cancel">
-									<input type="button" value="确认" class="btn-button btn-sure">
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="nav-">
@@ -215,6 +167,7 @@
 			if (status == 'success'){
 				$('.sign_a').text(data.hitokoto);
 				$('.sign_a').attr('href', 'https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&id=' + data.id)
+				// $('.sign_a').attr('href', 'https://hitokoto.cn/?uuid=' + data.uuid)
 				// $('.hitokoto_from').text(data.from);
 			}
 			// else{
