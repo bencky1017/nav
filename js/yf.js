@@ -48,9 +48,13 @@ $(function(){
 
 		/*用户自定义模块*/
 		if (i==0) {
-			var navedit_list='<a href="https://bencky1017.github.io/nav/README/help" class="navhelp">帮助</a><span class="navedit">编辑</span><div class="navlist-a">';
+			var navedit_list='<a class="navhelp">帮助</a><a class="navedit">编辑</a><div class="navlist-a">';
 			$('.navtitle').after(navedit_list);
-			var ndd_table='<a style="display:none;"><div class="nav_add">添加</div></a><div class="ndd-table" style="display: none;"><div class="ndd-t-name">名称：<input type="search" value=""  placeholder="名称(5字以内)" onkeyup="value=value.replace(/[\\s*]/g,\'\')" maxlength="5" class="ndd-t-input nti-name"></div><div class="ndd-t-url">网址：<input type="search" value="" placeholder="网址链接" onkeyup="value=value.replace(/[\\s*]/g,\'\')" class="ndd-t-input nti-url"></div><div class="ndd-t-btn"><input type="button" value="取消" class="btn-button btn-cancel"><input type="button" value="确认" class="btn-button btn-sure"></div></div>';
+			$('.navhelp').attr({
+				'href':'https://bencky1017.github.io/nav/README/help',
+				'target':'_blank',
+			})
+			var ndd_table='<a style="display:none;"><div class="nav_add">添加</div></a><div class="ndd-table-mask" style="display: none;"><div class="ndd-table" style="display: none;"><div class="ndd-t-name">名称：<input type="search" value=""  placeholder="名称(5字以内)" onkeyup="value=value.replace(/[\\s*]/g,\'\')" maxlength="5" class="ndd-t-input nti-name"></div><div class="ndd-t-url">网址：<input type="search" value="" placeholder="网址链接" onkeyup="value=value.replace(/[\\s*]/g,\'\')" class="ndd-t-input nti-url"></div><div class="ndd-t-btn"><input type="button" value="取消" class="btn-button btn-cancel"><input type="button" value="确认" class="btn-button btn-sure"></div></div></div>';
 			$('.navlist').append(ndd_table);
 		}
 
@@ -84,6 +88,7 @@ $(function(){
 
 		/*缓存默认列表*/
 		if (i==0) {
+			$('.navlist-a a').attr('onclick','return false;');
 			window.localStorage.setItem('bk_default',$('.navlist-a').html());
 		}
 
@@ -99,8 +104,8 @@ $(function(){
 		}
 		if (numlimit<link.category[i].list.length - 1) {
 			if (i==0) {$('.nav_an').css('display','');continue;}
-			if (i==2) {$('.navlist').eq(i).append(nav_a);continue;}/*限制令*/
-			$('.navlist').eq(i).append(nav_a1);
+			if (i==2) {$('.navlist').eq(i).after(nav_a);continue;}/*限制令*/
+			$('.navlist').eq(i).after(nav_a1);
 		}
 	}
 
@@ -129,7 +134,7 @@ $(function(){
 		/*条件下显示更多按钮*/
 		var nav_a2='<a><div class="nav_a2">更多</div></a>';
 		if (numlimit<link.category[i].list.length - 1) {
-			$('.navlist').eq(i).append(nav_a2);
+			$('.navlist').eq(i).after(nav_a2);
 		}
 
 		/*加入'收起'按钮*/
@@ -147,13 +152,13 @@ $(function(){
 		if ($(this).text()=='更多') {
 			for (var j = 12; j <= link.category[ck_index].list.length - 1; j++) {
 				var tb_body_list='<a href="'+link.category[ck_index].list[j].url+'"><div class="nav_d">'+link.category[ck_index].list[j].name+'</div></a>';
-				$(this).parent().before(tb_body_list);
+				$(this).parents('[class*="nav-"]').find('.navlist').append(tb_body_list);
 			}
 			$(this).html('收起').css('background-color','#fa0');
 		}else if ($(this).text()=='收起') {
-			var crtnum=$(this).parent().siblings('a').length;
-			for (var i = crtnum - 1; i >=12 ; i--) {
-				$(this).parent().siblings('a').eq(i).remove();
+			var crtnum=$(this).parents('[class*="nav-"]').find('a').length;
+			for (var i = crtnum - 2; i >=12 ; i--) {
+				$(this).parents('[class*="nav-"]').find('a').eq(i).remove();
 			}
 			$(this).html('更多').css('background-color','#369');
 		}
@@ -191,10 +196,16 @@ $(function(){
 		message: "这是一条消息", //消息内容,默认为"这是一条消息"
 		type: "normal", //消息的类型，还有success,error,warning等，默认为normal
 	});
-	message.setting("showTime", "1000");
+	message.setting("showTime", "3000");
 	$('.nav_a').click(function() {
-		var msgtitle=$(this).parents('.navlist').find('.navtitle').text();
-		message.add(msgtitle+" 为会员功能，不给你看","warning");
+		if ($('.m-message').children().hasClass('c-message-notice')) {
+		}else{
+			var msgtitle=$(this).parent().prev().find('.navtitle').text();
+			message.add(msgtitle+" 为会员功能，不给你看","warning");
+
+			/*移除全屏提示条c-message-notice*/
+			setTimeout(function(){$('.c-message-notice').remove();},5000);
+		}
 	});
 });
 $(function(){
@@ -217,6 +228,11 @@ $(function(){
 			});
 			$('.nav_reset').off('click').on('click',function(){
 				$('.navlist-a').html(window.localStorage.getItem('bk_default'));
+				/*恢复后可删除*/
+				$('.nav_d').off('dblclick').on('dblclick',function(){
+					let delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');
+					if (delconfirm) {$(this).parent().remove();}
+				})
 			});
 
 		}else if ($(this).text()=='保存') {
@@ -260,23 +276,34 @@ $(function(){
 	/*添加链接*/
 	$('.nav_add').on('click',function(){
 		$('.nti-name,.nti-url').val('');
+		$('.nti-name').attr('placeholder','名称(5字以内)');
+		$('.nti-url').attr('placeholder','网址链接');
 		$('.ndd-table').css('display','');
+		$('.ndd-table-mask').css({'display':'','background-color':'rgb(0, 0, 0, 0.8)'});
 	});
 
 	/*取消添加*/
 	$('.btn-cancel').on('click',function(){
 		$('.ndd-table').css('display','none');
+		$('.ndd-table-mask').css('display','none');
 	});
 
 	/*确认添加*/
 	$('.btn-sure').on('click',function(){
 		var name=$('.nti-name');
 		var url=$('.nti-url');
-		if (name.val()!=''&url.val()!=''){
+		var reg=/^[http|https|file|chrome]{4,}:\/\/[\S]*/;//*匹配表达式*
+		if (name.val()=='') {name.attr('placeholder','名称未填写');}
+		if (url.val()=='') {url.attr('placeholder','链接未填写');}
+		else if (!reg.test(url.val())) {
+			url.val('').attr('placeholder','链接定义错误');
+		}
+		if (name.val()!=''&url.val()!=''&reg.test(url.val())){
 			var link='<a href="'
 			+url.val()+'" onclick="return false;"><div class="nav_d">'
 			+name.val()+'</div></a>';
 			$('.ndd-table').css('display','none');
+			$('.ndd-table-mask').css('display','none');
 			$('.navlist-a').append(link);
 			$('.nav_d').off('dblclick').on('dblclick',function(){
 				let delconfirm=confirm('确认删除 “'+$(this).text()+'” 吗？');

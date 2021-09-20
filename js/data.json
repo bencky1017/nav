@@ -198,6 +198,8 @@ link=/*限制12*/
 			"name":"网页应用",
 			"class":"nav-webapp",
 			"list":[
+				{"url":"https://github.com/","name":"Github"},
+				{"url":"https://gitee.com/","name":"Gitee"},
 				{"url":"https://www.extfans.com/","name":"扩展迷"},
 				{"url":"https://chrome.zzzmh.cn/","name":"极简插件"},
 				{"url":"https://greasyfork.org/zh-CN","name":"插件脚本"},
@@ -427,7 +429,7 @@ link=/*限制12*/
 				{"url":"https://dev.qweather.com/","name":"和风天气"},
 				{"url":"https://api.uomg.com/","name":"优启梦"},
 				{"url":"https://cdn.seovx.com/","name":"夏沫"},
-				//{"url":"https://www.aeqx.cn/","name":"夏沫原"},
+				// {"url":"https://www.aeqx.cn/","name":"夏沫原"},
 				{"url":"https://www.woyaocha.net/","name":"我要查"},
 			]
 		}
