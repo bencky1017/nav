@@ -335,6 +335,11 @@ $(function(){
 	$('.footer-head,.footer-body').on('click',function(){
 		$('.footer-body').slideToggle(200);
 	})
+
+	/*公告模块*/
+	$('.notice-mask').on('click',function(){
+		$('.notice').hide();
+	});
 });
 var MyMessage = (function() {
 	function message(setting) {

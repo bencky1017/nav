@@ -1,5 +1,19 @@
 # 内容测试文件
 
+
+
+
+|图片|十进制|十六进制||
+| ---- | ------ | ----- | ------------------------------------------------------------ |
+| 👆&#128070; | 128070 | 1F446  &#x1F446; | [尝试一下](https://www.runoob.com/try/try.php?filename=tryref_emoji&deci=128070) |
+| 👇&#128071; | 128071 | 1F447  &#x1F447; | [尝试一下](https://www.runoob.com/try/try.php?filename=tryref_emoji&deci=128071) |
+| 👈&#128072; | 128072 | 1F448  &#x1F448; | [尝试一下](https://www.runoob.com/try/try.php?filename=tryref_emoji&deci=128072) |
+| 👉&#128073; | 128073 | 1F449  &#x1F449; | [尝试一下](https://www.runoob.com/try/try.php?filename=tryref_emoji&deci=128073) |
+
+
+
+d
+
 | d    | d      |      |   |
 | ---- | ---- | ---- |
 |    q  |   w   |   e   |
@@ -124,6 +138,10 @@ Command|Description|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size
 > 
 
 :1234:`:1234:` 
+
+:point_left:`:point_left:` 
+
+
 
 emoji快捷代码，格式`:`+英文或者数字+`:` 
 

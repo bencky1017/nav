@@ -129,7 +129,6 @@ body{
 	border-radius: 15px;
 	margin: 5px auto;
 	cursor: pointer;
-	z-index: 1;
 }
 .weblist-search td,
 .weblist-video td,
@@ -470,6 +469,105 @@ body{
 }
 
 
+
+.notice{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+}
+.notice-mask{
+	height: 100%;
+	width: 100%;
+	background-color: #0009;
+	position: fixed;
+}
+.notice-content{
+	width: 500px;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	transition: all 0.5s;
+}
+.nc-title{
+	height: 60px;
+	line-height: 60px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #19c;
+	user-select: none;
+	border-top-left-radius: 30px; 
+	border-top-right-radius: 30px; 
+}
+.nc-list{
+	/*background-color: #19c;*/
+	background-color: #adf;
+}
+.nc-frame{
+	width: 100%;
+	height: 300px;
+}
+.nc-check{
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background-color: #19c;
+	user-select: none;
+	border-bottom-left-radius: 30px; 
+	border-bottom-right-radius: 30px; 
+}
+.nc-check input{
+	display: none;
+}
+.nc-check input:checked+label::before{
+	display: inline-block;
+	content: '\2714';
+	border: 1px solid #999;
+	border-radius: 4px;
+	width: 18px;
+	height: 18px;
+	font-size: 26px;
+	line-height: 10px;
+	text-align: center;
+	vertical-align: middle;
+	color: #fff;
+	border-color: #0af;
+	background-color: #0af;
+}
+.nc-check input+label::before{
+	display: inline-block;
+	content: '';
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 18px;
+	height: 18px;
+	margin: 0px 5px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #fff;
+}
+.nc-check label:hover:before{
+	border-color: #0af;
+}
+
+
+
+
+
+
+
+
+
+.nc-tip{
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	user-select: none;
+}
+
 .footer{
 	display: flex;
 	flex-direction: column;
@@ -551,5 +649,15 @@ body{
 	.header-sign{
 		font-size: 1.2em;
 		min-width: 440px;
+	}
+	.notice-content{
+		width: 80vw;
+		min-width: 350px;
+		text-align: center;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		transition: all 1s;
 	}
 }

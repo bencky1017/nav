@@ -11,13 +11,34 @@
 
 
 
+### 2021年9月23日
+
+完成`YF吟风导航v2.2.1`版本
+
+#### v2.2.1
+
+1.`更新`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
+
+2.新增内容
+
+|    名称    | 内容                                                         |
+| :--------: | :----------------------------------------------------------- |
+|  公告模块  | 增加了公告模块，包括：感谢信息、新版本发布时间、新增内容、优化内容 |
+| `优化反馈` | 感谢[wangzlls](https://github.com/wangzlls)反馈的 Bug 以及优化建议 |
+|   README   | 新增README文档中 Emoji 表情                                  |
+
+
+---
+
+
+
 ### 2021年9月20日
 
 完成`YF吟风导航v2.2.0`版本
 
 #### v2.2.0
 
-1.`更新`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`更新`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.新增内容
 
@@ -25,7 +46,7 @@
 | :--------: | :----------------------------------------------------------- |
 |    蒙版    | 增加了添加链接时的黑色背景蒙版`rgb(0, 0, 0, 0.8)`            |
 |  正则匹配  | 增加了用户添加网址时的正则匹配表达式<br />目前支持的链接前缀：`http\|https\|file\|chrome`<br />正则表达式：`/^[http\|https\|file\|chrome]{4,}:\/\/[\S]*/`<br />仅限制开头，不限制结尾 |
-| `优化反馈` | 感谢[wangzlls](https://github.com/wangzlls)反馈的Bug以及优化建议 |
+| `优化反馈` | 感谢 [wangzlls](https://github.com/wangzlls) 反馈的 Bug 以及优化建议 |
 
 3.优化内容
 
@@ -46,7 +67,7 @@
 
 #### v2.1.2
 
-1.`优化`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`优化`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.优化内容
 
@@ -66,7 +87,7 @@
 
 #### v2.1.1
 
-1.`更新`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`更新`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.新增内容
 
@@ -94,7 +115,7 @@
 
 #### v2.1.0
 
-1.`更新`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`更新`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.新增内容
 
@@ -120,7 +141,7 @@
 
 #### v2.0.2
 
-1.`优化`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`优化`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.优化内容
 
@@ -140,7 +161,7 @@
 
 #### v2.0.1
 
-1.`优化`版本，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.`优化`版本，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.优化内容
 
@@ -158,7 +179,7 @@
 
 #### v2.0.0
 
-1.第二版，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.第二版，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.优化内容
 
@@ -178,7 +199,7 @@
 
 #### v1.0.0
 
-1.第一版，发布网址:point_right:[YF吟风导航](https://bencky1017.github.io/nav/):point_left: (现已更新最新版)
+1.第一版，发布网址&#128073;[YF吟风导航](https://bencky1017.github.io/nav/)&#128072;(现已更新最新版)
 
 2.主要内容
 
@@ -227,7 +248,7 @@
 
 制作**Kent Game** 网页解密游戏，仿制**Nazo Game** 而制作的
 
-游戏网页点击:point_right:[Kent Game](https://bencky1017.github.io/KentGame/index.html) :point_left: 
+游戏网页点击&#128073;[Kent Game](https://bencky1017.github.io/KentGame/index.html)&#128072;
 
 ---
 
