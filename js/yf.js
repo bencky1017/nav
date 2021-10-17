@@ -88,7 +88,7 @@ $(function(){
 
 		/*缓存默认列表*/
 		if (i==0) {
-			$('.navlist-a a').attr('onclick','return false;');
+			$('.navlist-a a').attr('onclick','return false;');/*禁止a标签跳转*/
 			window.localStorage.setItem('bk_default',$('.navlist-a').html());
 		}
 
@@ -340,6 +340,64 @@ $(function(){
 	$('.notice-mask').on('click',function(){
 		$('.notice').hide();
 	});
+});
+$(function(){
+	/*快捷键与热键设置*/
+	/*全局热键*/
+	function pureBack(){/*纯享背景模式切换*/
+		if ($('.wrapper').css('display')!='none') {
+			$('.wrapper').css({'display':'none'});
+			$('.pureBack').css({'display':''});
+			$('.background').css({'filter':'blur(0px)'});
+			$('#he-plugin-simple').css({'display':'none'});
+		}else if($('.wrapper').css('display')=='none'){
+			$('.wrapper').css({'display':''});
+			$('.pureBack').css({'display':'none'});
+			$('.background').css({'filter':'blur(5px)'});
+			$('#he-plugin-simple').css({'display':''});
+		}
+	}
+	$(document).keydown(function (e) {
+		if (e.ctrlKey && e.keyCode == 13){/*你按了键盘ctrl+enter*/
+			pureBack();
+		}
+	});
+	$('.header-title,.background,.large-header').on('dblclick',function(){
+		pureBack();
+	});
+
+
+	/*功能按键键值
+	*	event.ctrlKey	=	control按键
+	*	event.shiftKey	=	Shift按键
+	*	event.altKey	=	Alt按键
+	*
+	*	keycode 8 = BackSpace BackSpace
+	*	keycode 9 = Tab Tab
+	*	keycode 12 = Clear
+	*	keycode 13 = Enter
+	*	keycode 16 = Shift_L
+	*	keycode 17 = Control_L
+	*	keycode 18 = Alt_L
+	*	keycode 19 = Pause
+	*	keycode 20 = Caps_Lock
+	*	keycode 27 = Escape Escape
+	*	keycode 32 = space space
+	*	keycode 33 = Prior(PageUp)
+	*	keycode 34 = Next(PageDown)
+	*	keycode 35 = End
+	*	keycode 36 = Home
+	*	keycode 37 = Left
+	*	keycode 38 = Up
+	*	keycode 39 = Right
+	*	keycode 40 = Down
+	*	keycode 41 = Select
+	*	keycode 42 = Print
+	*	keycode 43 = Execute
+	*	keycode 45 = Insert
+	*	keycode 46 = Delete
+	*	keycode 47 = Help
+	*/
 });
 var MyMessage = (function() {
 	function message(setting) {
