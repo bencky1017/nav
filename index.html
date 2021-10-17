@@ -6,9 +6,10 @@
 	<meta name="description" content="吟风导航，为了你的便捷操作而设计的网页导航。">
 	<meta name="keywords" content="吟风导航,吟风,导航,网页导航"/>
 	<meta name="author" content="BK"/>
-	<!-- <link rel="icon" type="image/png" sizes="70x70" href="img/favicon.png"> -->
+	<link rel="icon" type="image/png" sizes="128x128" href="favicon.ico">
 	<title>YF吟风导航</title>
 	<link rel="stylesheet" type="text/css" href="css/yf.css">
+	<link rel="stylesheet" type="text/css" href="css/timestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.my-message.1.1.css">
 	<link rel="stylesheet" type="text/css" href="css/onlineicon.css">
 	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
@@ -25,7 +26,7 @@
 <body>
 	<!-- <div class="background"id="background"></div><iframe src="" frameBorder="0" width="0" scrolling="no" height="0" target="_blank"></iframe> -->
 	<div class="background"></div>
-	<div id="he-plugin-simple"></div>
+	<div class='no_print'><div id="he-plugin-simple"></div></div>
 	<div class="wrapper">
 		<div class="header">
 			<div class="header-title">吟风导航</div>
@@ -97,7 +98,7 @@
 			</div>
 			<div class="toolbox">
 				<div class="toolbox-nav"  oncontextmenu=self.event.returnValue=false><!-- 必须保持原始6个，名称不超过5个字 -->
-					<div class="nav-usual">
+					<div class="nav-">
 						<div class="navlist">
 						</div>
 					</div>
@@ -125,7 +126,7 @@
 				<!-- 
 					div.nav-xxxxx>div.navlist>div.navtitle{66666}+span.navedit{编辑}+div.navlist-a>a[href=66666]>div.nav_d{66666}*6
 				-->
-				<div class="toolbox-theme">
+				<div class="toolbox-theme no_print">
 					<div class="theme-pic">
 						<img src="https://cdn.seovx.com/?mom=302">
 					</div>
@@ -151,7 +152,7 @@
 				<div class="nc-tip">点击空白处关闭</div>
 			</div>
 		</div>
-		<div class="footer">
+		<div class="footer no_print">
 			<div class="footer-head">
 				Copyright&copy;<script>document.write(new Date().getFullYear());document.write('&nbsp;&nbsp;'+$('title').text());</script>
 			</div>
@@ -174,6 +175,69 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="pureBack" style='display: none;'><!-- 纯享背景模式 -->
+		<div id="large-header" class="large-header">
+			<div style="position:absolute;left: 10%; top:64%;"  class="time" id="time" data-hours="" data-minutes="">
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="digit">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+		<script src='js/Rx.min.js'></script>
+		<script src='js/rxcss.min.js'></script>
+		<script src="js/timeindex.js"></script>
 	</div>
 	<!-- <script type="text/javascript" src="js/background.js"></script> -->
 	<script type="text/javascript">
