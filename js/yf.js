@@ -399,6 +399,22 @@ $(function(){
 	*	keycode 47 = Help
 	*/
 });
+$(function(){
+	$('.background').css({
+		'position': 'fixed',
+		'width': '100%',
+		'height': '100%',
+		'filter': 'blur(5px)',
+		'background': 'url(https://cdn.seovx.com/?mom=302)',
+		'background-size': 'cover',
+		'background-repeat': 'no-repeat',
+		'background-position': 'center center',
+		'z-index': '-1',
+	});
+	$('.theme-pic img').attr({
+		'src':'https://cdn.seovx.com/?mom=302'
+	});
+});
 var MyMessage = (function() {
 	function message(setting) {
 		//合并默认参数

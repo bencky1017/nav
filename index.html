@@ -128,7 +128,7 @@
 				-->
 				<div class="toolbox-theme no_print">
 					<div class="theme-pic">
-						<img src="https://cdn.seovx.com/?mom=302">
+						<img src="./img/1.jpg">
 					</div>
 					<div class="theme-button" onclick="window.location.reload();">
 						<span class="theme-refresh">刷新</span>
@@ -244,14 +244,44 @@
 		$('img').zoomify();
 		$.get("https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&",function(data,status){
 			if (status == 'success'){
+				var hito_str='';
+				let param=new Array(12);
+				param[0]=data.id;			//id
+				param[1]=data.uuid;			//uuid
+				param[2]=data.hitokoto;		//hitokoto
+				param[3]=data.type;			//type
+				param[4]=data.from;			//from
+				param[5]=data.from_who;		//from_who
+				param[6]=data.creator;		//creator
+				param[7]=data.creator_uid;	//creator_uid
+				param[8]=data.reviewer;		//reviewer
+				param[9]=data.commit_from;	//commit_from
+				param[10]=data.created_at;	//created_at
+				param[11]=data.length;		//length
+				
+				hito_str='{"id":'			+param[0]+
+					',"uuid":"'			+param[1]+'"'+
+					',"hitokoto":"'		+param[2]+'"'+
+					',"type":"'			+param[3]+'"'+
+					',"from":"'			+param[4]+'"'+
+					',"from_who":'		+param[5]+
+					',"creator":"'		+param[6]+'"'+
+					',"creator_uid":'	+param[7]+
+					',"reviewer":'		+param[8]+
+					',"commit_from":"'	+param[9]+'"'+
+					',"created_at":"'	+param[10]+'"'+
+					',"length":'		+param[11]+
+					'}';
+				window.localStorage.setItem("bk_hito_str",hito_str);
 				$('.sign_a').text(data.hitokoto);
-				$('.sign_a').attr('href', 'https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&id=' + data.id)
+				$('.sign_a').attr('href', 'hitokoto.html')
+				// $('.sign_a').attr('href', 'https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&id=' + data.id)
 				// $('.sign_a').attr('href', 'https://hitokoto.cn/?uuid=' + data.uuid)
 				// $('.hitokoto_from').text(data.from);
 			}
-			// else{
-			// 	$('.hitokoto_text').text('获取出错！');
-			// }
+			else{
+				$('.sign_a').text('未入苦处不信神佛');
+			}
 		});
 		WIDGET = {
 			"CONFIG": {
