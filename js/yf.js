@@ -399,22 +399,116 @@ $(function(){
 	*	keycode 47 = Help
 	*/
 });
+// $(function(){//seovx夏沫博客图片
+// 	$('.background').css({
+// 		'position': 'fixed',
+// 		'width': '100%',
+// 		'height': '100%',
+// 		'filter': 'blur(5px)',
+// 		'background': 'url(https://cdn.seovx.com/?mom=302)',
+// 		'background-size': 'cover',
+// 		'background-repeat': 'no-repeat',
+// 		'background-position': 'center center',
+// 		'z-index': '-1',
+// 	});
+// 	$('.theme-pic img').attr({
+// 		'src':'https://cdn.seovx.com/?mom=302'
+// 	});
+// });
+
 $(function(){
-	$('.background').css({
-		'position': 'fixed',
-		'width': '100%',
-		'height': '100%',
-		'filter': 'blur(5px)',
-		'background': 'url(https://cdn.seovx.com/?mom=302)',
-		'background-size': 'cover',
-		'background-repeat': 'no-repeat',
-		'background-position': 'center center',
-		'z-index': '-1',
-	});
-	$('.theme-pic img').attr({
-		'src':'https://cdn.seovx.com/?mom=302'
-	});
+	function css_weblink(data){
+		$('.theme-pic img').attr({
+			'src':data,
+		});
+		$('.background').css({
+			'position': 'fixed',
+			'width': '100%',
+			'height': '100%',
+			'filter': 'blur(5px)',
+			'background': 'url('+data+')',
+			'background-size': 'cover',
+			'background-repeat': 'no-repeat',
+			'background-position': 'center center',
+			'z-index': '-1',
+		});
+	}
+	function css_default(imgUrl=undefined){
+		var imgName='';
+		if (imgUrl!=undefined) {
+			imgName=imgUrl;
+		}else{
+			imgName=Math.ceil(Math.random()*5);
+		}
+		$('.theme-pic img').attr({
+			'src':'../img/'+imgName+'.jpg'
+		});
+		$('.background').css({
+			'position': 'fixed',
+			'width': '100%',
+			'height': '100%',
+			'filter': 'blur(5px)',
+			'background': 'url(../img/'+imgName+'.jpg)',
+			'background-size': 'cover',
+			'background-repeat': 'no-repeat',
+			'background-position': 'center center',
+			'z-index': '-1',
+		});
+	}
+	function reloadpic(){
+		try{
+			//$.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1,api_key:'942b3bf8afc59eba'},function (data,status) {
+			$.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1},function (data,status) {
+				window.localStorage.setItem('bk_backImg',data.data[0].imgurl);
+				console.log(status);
+				console.log(data.data[0].imgurl);
+				if (status=='success') {
+					window.localStorage.setItem('bk_backImg',data.data[0].imgurl);
+					css_weblink(data.data[0].imgurl);
+				}else{
+					try{
+						var backImg=window.localStorage.getItem('bk_backImg');
+						css_default(backImg);
+					}
+					catch{
+						css_default();
+					}
+				}
+			})
+		}
+		catch(err){
+			console.log(
+			"\n %c Image Error %c URL Access restricted, wait 3 min and try again. ",
+			"color:#eee;background:#f22;padding:5px 0;",
+			"color:#F8F8FF;background:#F4A7B9;padding:5px 0;"
+			);}
+	}
+	reloadpic();
+	$('.theme-button').on('click',function(){reloadpic();});
 });
+$(function(){
+	var curDateNew=new Date().getDate();
+	var bk_time=window.localStorage.getItem('bk_time');
+	var getDate=bk_time!=null&bk_time!=undefined?JSON.parse(bk_time).date:curDateNew-1;
+	if (curDateNew!=getDate) {
+		$('.notice').css('display','');
+	}else{
+		$('.notice').css('display','none');
+	}
+	var jsonDate={date:'',time:''};
+	$('.nc-check>input').on('click',function(){
+		if ($(this).attr('data-check')=='0') {
+			$(this).attr('data-check','1');
+			jsonDate.date=new Date().getDate().toString(),//获取日期的日
+			jsonDate.time=Math.round(new Date()/1000).toString()//获取时间戳
+			window.localStorage.setItem('bk_time',JSON.stringify(jsonDate));//json转换为string
+		}else if ($(this).attr('data-check')=='1') {
+			$(this).attr('data-check','0');
+			jsonDate.date='';
+			window.localStorage.setItem('bk_time',JSON.stringify(jsonDate));//json转换为string
+		}
+	});
+})
 var MyMessage = (function() {
 	function message(setting) {
 		//合并默认参数
