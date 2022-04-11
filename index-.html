@@ -6,10 +6,9 @@
 	<meta name="description" content="吟风导航，为了你的便捷操作而设计的网页导航。">
 	<meta name="keywords" content="吟风导航,吟风,导航,网页导航"/>
 	<meta name="author" content="BK"/>
-	<link rel="icon" type="image/png" sizes="128x128" href="favicon.ico">
+	<!-- <link rel="icon" type="image/png" sizes="70x70" href="img/favicon.png"> -->
 	<title>YF吟风导航</title>
 	<link rel="stylesheet" type="text/css" href="css/yf.css">
-	<link rel="stylesheet" type="text/css" href="css/timestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.my-message.1.1.css">
 	<link rel="stylesheet" type="text/css" href="css/onlineicon.css">
 	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
@@ -17,16 +16,15 @@
 	<script type="text/javascript" src="font/iconfont.js"></script>
 	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
 	<script type="text/javascript" src="js/zoomify.js"></script>
-	<!-- <script type="text/javascript" src="js/mymessage.1.1.js"></script> -->
+	<script type="text/javascript" src="js/mymessage.1.1.js"></script>
 	<script type="text/javascript" src="js/data.json"></script>
-	<script type="text/javascript" src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/yf.js"></script>
 	<base target="_blank"/>
 </head>
 <body>
 	<!-- <div class="background"id="background"></div><iframe src="" frameBorder="0" width="0" scrolling="no" height="0" target="_blank"></iframe> -->
 	<div class="background"></div>
-	<div class='no_print'><div id="he-plugin-simple"></div></div>
+	<div id="he-plugin-simple"></div>
 	<div class="wrapper">
 		<div class="header">
 			<div class="header-title">吟风导航</div>
@@ -100,6 +98,56 @@
 				<div class="toolbox-nav"  oncontextmenu=self.event.returnValue=false><!-- 必须保持原始6个，名称不超过5个字 -->
 					<div class="nav-">
 						<div class="navlist">
+							<div class="navtitle">常用网址</div>
+							<a class="navhelp">帮助</a>
+							<a class="navedit">编辑</a>
+							<div class="navlist-a">
+								<a href="https://www.baidu.com/">
+									<div class="nav_d">百度</div>
+								</a>
+								<a href="https://www.uc123.com/">
+									<div class="nav_d">UC浏览器</div>
+								</a>
+								<a href="https://jikipedia.com/">
+									<div class="nav_d">小鸡词典</div>
+								</a>
+								<a href="https://weibo.com/">
+									<div class="nav_d">微博</div>
+								</a>
+								<a href="https://www.zhihu.com/">
+									<div class="nav_d">知乎</div>
+								</a>
+								<a href="https://i.mi.com/">
+									<div class="nav_d">小米云服务</div>
+								</a>
+								<a href="https://github.com/">
+									<div class="nav_d">Github</div>
+								</a>
+								<a href="https://www.umeng.com/">
+									<div class="nav_d">友盟</div>
+								</a>
+								<a href="http://81rc.81.cn/">
+									<div class="nav_d">军队人才网</div>
+								</a>
+								<a href="https://docs.qq.com/desktop/">
+									<div class="nav_d">腾讯文档</div>
+								</a>
+							</div>
+							<!-- <a><div class="nav_add">添加</div></a> -->
+							<div class="ndd-table-mask">
+								<div class="ndd-table" style="display: none;">
+									<div class="ndd-t-name">
+										名称：<input type="search" value=""  placeholder="名称(5字以内)" onkeyup="value=value.replace(/[\s*]/g,'')" maxlength="5" class="ndd-t-input nti-name">
+									</div>
+									<div class="ndd-t-url">
+										网址：<input type="search" value="" placeholder="网址链接" onkeyup="value=value.replace(/[\s*]/g,'')" class="ndd-t-input nti-url">
+									</div>
+									<div class="ndd-t-btn">
+										<input type="button" value="取消" class="btn-button btn-cancel">
+										<input type="button" value="确认" class="btn-button btn-sure">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="nav-">
@@ -124,34 +172,20 @@
 					</div>
 				</div>
 				<!-- 
-					div.nav-xxxxx>div.navlist>div.navtitle{66666}+span.navedit{编辑}+div.navlist-a>a[href=66666]>div.nav_d{66666}*6
+					div.nav-xxxxx>div.navtitle{666666}+div.navlist>(a[href=66666]>div.nav_d{666666})*6
 				-->
-				<div class="toolbox-theme no_print">
+				<div class="toolbox-theme">
 					<div class="theme-pic">
-						<img src="">
+						<img src="https://cdn.seovx.com/?mom=302">
 					</div>
-					<div class="theme-button">
-						<span class="theme-refresh">换图</span>
+					<div class="theme-button" onclick="window.location.reload();">
+						<span class="theme-refresh">刷新</span>
 						<!-- <a class="theme-download" download target="_blank">下载</a> -->
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="notice" style="display: none;">
-			<div class="notice-mask"></div>
-			<div class="notice-content">
-				<div class="nc-title">公&nbsp;&nbsp;告</div>
-				<div class="nc-list">
-					<iframe src="notice.html" frameborder="0" class="nc-frame"></iframe>
-				</div>
-				<div class="nc-check">
-					<input type="checkbox" name="notoday" value="yes" id="notoday" data-check=0>
-					<label for="notoday">今日不再弹出</label>
-				</div>
-				<div class="nc-tip">点击空白处关闭</div>
-			</div>
-		</div>
-		<div class="footer no_print">
+		<div class="footer">
 			<div class="footer-head">
 				Copyright&copy;<script>document.write(new Date().getFullYear());document.write('&nbsp;&nbsp;'+$('title').text());</script>
 			</div>
@@ -171,120 +205,22 @@
 				<div class="fb-down">
 					<span class='fbdown-cnzz' id='cnzz_stat_icon_1280283621'></span>
 					<script src='https://s9.cnzz.com/z_stat.php?id=1280283621&online=1&show=line' type='text/javascript'></script>
-					<!-- <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280283621'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280283621%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script> -->
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="pureBack" style='display: none;'><!-- 纯享背景模式 -->
-		<div id="large-header" class="large-header">
-			<div style="position:absolute;left: 10%; top:64%;"  class="time" id="time" data-hours="" data-minutes="">
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-				<div class="digit">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
-			</div>
-		</div>
-		<script src='js/Rx.min.js'></script>
-		<script src='js/rxcss.min.js'></script>
-		<script src="js/timeindex.js"></script>
 	</div>
 	<!-- <script type="text/javascript" src="js/background.js"></script> -->
 	<script type="text/javascript">
 		$('img').zoomify();
-		var randnum=Math.ceil(Math.random()*5);
-		$('.theme-pic img').attr('src','./img/'+randnum+'.jpg');
-		$('.background').css({'position':'fixed','width': '100%','height':'100%','filter':'blur(5px)','background':'url(./img/'+randnum+'.jpg)','background-size': 'cover','background-repeat': 'no-repeat','background-position': 'center center','z-index': '-1'});
 		$.get("https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&",function(data,status){
 			if (status == 'success'){
-				var hito_str='';
-				let param=new Array(12);
-				param[0]=data.id;			//id
-				param[1]=data.uuid;			//uuid
-				param[2]=data.hitokoto;		//hitokoto
-				param[3]=data.type;			//type
-				param[4]=data.from;			//from
-				param[5]=data.from_who;		//from_who
-				param[6]=data.creator;		//creator
-				param[7]=data.creator_uid;	//creator_uid
-				param[8]=data.reviewer;		//reviewer
-				param[9]=data.commit_from;	//commit_from
-				param[10]=data.created_at;	//created_at
-				param[11]=data.length;		//length
-				
-				hito_str='{"id":'			+param[0]+
-					',"uuid":"'			+param[1]+'"'+
-					',"hitokoto":"'		+param[2]+'"'+
-					',"type":"'			+param[3]+'"'+
-					',"from":"'			+param[4]+'"'+
-					',"from_who":'		+param[5]+
-					',"creator":"'		+param[6]+'"'+
-					',"creator_uid":'	+param[7]+
-					',"reviewer":'		+param[8]+
-					',"commit_from":"'	+param[9]+'"'+
-					',"created_at":"'	+param[10]+'"'+
-					',"length":'		+param[11]+
-					'}';
-				window.localStorage.setItem("bk_hito_str",hito_str);
 				$('.sign_a').text(data.hitokoto);
-				$('.sign_a').attr('href', 'hitokoto.html')
-				// $('.sign_a').attr('href', 'https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&id=' + data.id)
-				// $('.sign_a').attr('href', 'https://hitokoto.cn/?uuid=' + data.uuid)
+				$('.sign_a').attr('href', 'https://v1.hitokoto.cn/?c=b&c=d&c=e&c=f&c=g&c=h&c=j&id=' + data.id)
 				// $('.hitokoto_from').text(data.from);
 			}
-			else{
-				$('.sign_a').text('未入苦处不信神佛');
-			}
+			// else{
+			// 	$('.hitokoto_text').text('获取出错！');
+			// }
 		});
 		WIDGET = {
 			"CONFIG": {

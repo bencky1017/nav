@@ -457,8 +457,8 @@ $(function(){
 	}
 	function reloadpic(){
 		try{
-			//$.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1,api_key:'942b3bf8afc59eba'},function (data,status) {
-			$.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1},function (data,status) {
+			// $.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1,api_key:'942b3bf8afc59eba'},function (data,status) {
+			$.get('https://api.muxiaoguo.cn/api/meinvtu',{num:1,api_key:'3a4b030b588328bb'},function (data,status) {
 				window.localStorage.setItem('bk_backImg',data.data[0].imgurl);
 				console.log(status);
 				console.log(data.data[0].imgurl);
